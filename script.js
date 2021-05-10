@@ -1,4 +1,4 @@
-const data = {
+const data = `{
     "lat": 33.53,
     "lon": -112.18,
     "timezone": "America/Phoenix",
@@ -1692,5 +1692,23 @@ const data = {
             "uvi": 10
         }
     ]
+}`
+
+let temperatureContainer = document.getElementById(`temperature-conatiner`)
+
+init(data)
+
+function init(string){
+    let weatherObj = JSON.parse(string);
+    createTempCard(weatherObj);
+    createSunriseSunsetCard(weatherObj);
+    createHighLowCard(weatherObj);
+    createWindCard(weatherObj);
 }
 
+function createTempCard(obj){
+    const CURRENT_TEMP = document.createElement(`h2`)
+    const FEELS_LIKE = document.createElement(`h4`)
+    const LOCATION = document.createElement(`h4`)
+    
+}
