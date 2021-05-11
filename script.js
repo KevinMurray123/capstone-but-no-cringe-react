@@ -1725,7 +1725,7 @@ function createTempCard(obj){
     temperatureContainer.appendChild(LOCATION)
 }
 function createSunriseSunsetCard(obj){
-    const
+    //const
 }
 
 var myVar = setInterval(myTimer, 1000);
