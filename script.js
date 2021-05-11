@@ -1694,7 +1694,9 @@ const data = `{
     ]
 }`
 
-let temperatureContainer = document.getElementById(`temperature-conatiner`)
+let temperatureContainer = document.getElementById(`temperature-container`)
+let SunriseSunset = document.getElementById(`sunrise-sunset`)
+
 
 init(data)
 
@@ -1702,13 +1704,26 @@ function init(string){
     let weatherObj = JSON.parse(string);
     createTempCard(weatherObj);
     createSunriseSunsetCard(weatherObj);
-    createHighLowCard(weatherObj);
-    createWindCard(weatherObj);
+    // createHighLowCard(weatherObj);
+    // createWindCard(weatherObj);
 }
 
 function createTempCard(obj){
-    const CURRENT_TEMP = document.createElement(`h2`)
-    const FEELS_LIKE = document.createElement(`h4`)
-    const LOCATION = document.createElement(`h4`)
+    const tempLabel = document.createElement(`p`);
+    const CURRENT_TEMP = document.createElement(`h2`);
+    const FEELS_LIKE = document.createElement(`h4`);
+    const LOCATION = document.createElement(`h4`);
+
+    tempLabel.textContent = `Current`; 
+    CURRENT_TEMP.textContent = `${obj.current.temp} °F`
+    FEELS_LIKE.textContent = `${obj.current.feels_like} °F`
+    LOCATION.textContent = obj.timezone;
     
+    temperatureContainer.appendChild(tempLabel)
+    temperatureContainer.appendChild(CURRENT_TEMP)
+    temperatureContainer.appendChild(FEELS_LIKE)
+    temperatureContainer.appendChild(LOCATION)
+}
+function createSunriseSunsetCard(obj){
+    const
 }
