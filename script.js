@@ -1725,10 +1725,28 @@ function createTempCard(obj){
     temperatureContainer.appendChild(LOCATION)
 }
 function createSunriseSunsetCard(obj){
-    const
-var myVar = setInterval(myTimer, 1000);
+    const SUNRISE = document.createElement(`h1`)
+    const SUNSET = document.createElement(`h1`)
+    
+    let riseTime = msToTime(obj.current.sunrise / 60)
+    SUNRISE.textContent = riseTime;
 
+    SunriseSunset.appendChild(SUNRISE)
+}
+
+var myVar = setInterval(myTimer, 1000);
 function myTimer() {
     var d = new Date();
     document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+// yoinked this from stack overflow
+function msToTime(s) {
+    var ms = s % 1000;
+    s = (s - ms) / 1000;
+    var secs = s % 60;
+    s = (s - secs) / 60;
+    var mins = s % 60;
+    var hrs = (s - mins) / 60;
+    return hrs + ':' + mins 
 }
