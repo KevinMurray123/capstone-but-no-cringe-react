@@ -1732,7 +1732,6 @@ function createSunriseSunsetCard(obj){
     SUNRISE.textContent = riseTime;
 
     SunriseSunset.appendChild(SUNRISE)
-    const
 }
 
 var myVar = setInterval(myTimer, 1000);
