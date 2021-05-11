@@ -1,7 +1,55 @@
 /*----  Main card Style  ----*/
+
+html{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-image: url("../content/background.png");
+}
+
+nav {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    h2 {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .nav-content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto; 
+        a {
+            display: inline-block;
+            img {
+                vertical-align: middle;
+            }
+            span {
+                margin-top: 25px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+#demo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
 #cards_landscape_wrap-2{
     text-align: center;
-    background: #F7F7F7;
 }
 
 #cards_landscape_wrap-2 .container{
@@ -79,7 +127,3 @@
     color: #00acc1;
 }
 /*---- End Main card Style  ----*/
-html{
-    font-family: 'Courier New', Courier, monospace;
-    background-color: blue;
-}
