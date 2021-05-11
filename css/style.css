@@ -1,7 +1,75 @@
 /*----  Main card Style  ----*/
+html {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  background-image: url("../content/background.png");
+}
+
+nav {
+  height: 100px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav h2 {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav .nav-content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+nav .nav-content a {
+  display: inline-block;
+}
+
+nav .nav-content a img {
+  vertical-align: middle;
+}
+
+nav .nav-content a span {
+  margin-top: 25px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#demo {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
 #cards_landscape_wrap-2 {
   text-align: center;
-  background: #F7F7F7;
 }
 
 #cards_landscape_wrap-2 .container {
@@ -86,7 +154,4 @@
 }
 
 /*---- End Main card Style  ----*/
-html {
-  font-family: 'Courier New', Courier, monospace;
-}
 /*# sourceMappingURL=style.css.map */
