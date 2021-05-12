@@ -1696,7 +1696,7 @@ const data = `{
 
 let temperatureContainer = document.getElementById(`temperature-container`)
 let SunriseSunset = document.getElementById(`sunrise-sunset`)
-
+let highLow = document.getElementById(`high-low`)
 
 init(data)
 
@@ -1704,7 +1704,7 @@ function init(string){
     let weatherObj = JSON.parse(string);
     createTempCard(weatherObj);
     createSunriseSunsetCard(weatherObj);
-    // createHighLowCard(weatherObj);
+    createHighLowCard(weatherObj);
     // createWindCard(weatherObj);
 }
 
@@ -1724,14 +1724,31 @@ function createTempCard(obj){
     temperatureContainer.appendChild(FEELS_LIKE)
     temperatureContainer.appendChild(LOCATION)
 }
+
+function createHighLowCard(obj) {
+    
+    const WEATHER = document.createElement(`h1`);
+    const HIGHLOW = document.createElement(`h3`)
+
+
+    WEATHER.textContent = obj.current.weather[0].main
+    HIGHLOW.textContent = `${Math.floor(obj.current.temp + 6)}° / ${Math.floor(obj.current.temp) - 11}°`
+
+    highLow.appendChild(WEATHER)
+    highLow.appendChild(HIGHLOW)
+}
+
 function createSunriseSunsetCard(obj){
-    const SUNRISE = document.createElement(`h1`)
-    const SUNSET = document.createElement(`h1`)
+    const SUNRISE = document.createElement(`h3`)
+    const SUNSET = document.createElement(`h3`)
     
     let riseTime = msToTime(obj.current.sunrise / 60)
-    SUNRISE.textContent = riseTime;
+    let setTime = msToTime(obj.current.sunset / 60)
+    SUNRISE.textContent = `Sunrise: ${riseTime} AM`;
+    SUNSET.textContent = `Sunset: ${setTime} PM`;
 
     SunriseSunset.appendChild(SUNRISE)
+    SunriseSunset.appendChild(SUNSET)
 }
 
 var myVar = setInterval(myTimer, 1000);
