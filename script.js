@@ -1739,8 +1739,8 @@ function createHighLowCard(obj) {
 }
 
 function createSunriseSunsetCard(obj){
-    const SUNRISE = document.createElement(`h3`)
-    const SUNSET = document.createElement(`h3`)
+    const SUNRISE = document.createElement(`h4`)
+    const SUNSET = document.createElement(`h4`)
     
     let riseTime = msToTime(obj.current.sunrise / 60)
     let setTime = msToTime(obj.current.sunset / 60)
