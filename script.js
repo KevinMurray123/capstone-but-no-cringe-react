@@ -1697,6 +1697,7 @@ const data = `{
 let temperatureContainer = document.getElementById(`temperature-container`)
 let SunriseSunset = document.getElementById(`sunrise-sunset`)
 let highLow = document.getElementById(`high-low`)
+let wind = document.getElementById(`wind`)
 
 init(data)
 
@@ -1705,36 +1706,46 @@ function init(string){
     createTempCard(weatherObj);
     createSunriseSunsetCard(weatherObj);
     createHighLowCard(weatherObj);
-    // createWindCard(weatherObj);
+    createWindCard(weatherObj);
 }
 
 function createTempCard(obj){
     const tempLabel = document.createElement(`p`);
     const CURRENT_TEMP = document.createElement(`h2`);
+    const feelsLabel = document.createElement(`p`)
     const FEELS_LIKE = document.createElement(`h4`);
+    const locLabel = document.createElement(`p`);
     const LOCATION = document.createElement(`h4`);
 
     tempLabel.textContent = `Current`; 
     CURRENT_TEMP.textContent = `${obj.current.temp} °F`
+    feelsLabel.textContent = `Feels Like`
     FEELS_LIKE.textContent = `${obj.current.feels_like} °F`
+    locLabel.textContent = `Location`
     LOCATION.textContent = obj.timezone;
     
     temperatureContainer.appendChild(tempLabel)
     temperatureContainer.appendChild(CURRENT_TEMP)
+    temperatureContainer.appendChild(feelsLabel)
     temperatureContainer.appendChild(FEELS_LIKE)
+    temperatureContainer.appendChild(locLabel)
     temperatureContainer.appendChild(LOCATION)
 }
 
 function createHighLowCard(obj) {
-    
+    const weatherLabel = document.createElement(`p`);
     const WEATHER = document.createElement(`h1`);
-    const HIGHLOW = document.createElement(`h3`)
+    const highLowLabel = document.createElement(`p`);
+    const HIGHLOW = document.createElement(`h3`);
 
-
+    weatherLabel.textContent = `Weather`
     WEATHER.textContent = obj.current.weather[0].main
+    highLowLabel.textContent = `High / Low`
     HIGHLOW.textContent = `${Math.floor(obj.current.temp + 6)}° / ${Math.floor(obj.current.temp) - 11}°`
 
+    highLow.appendChild(weatherLabel)
     highLow.appendChild(WEATHER)
+    highLow.appendChild(highLowLabel)
     highLow.appendChild(HIGHLOW)
 }
 
@@ -1751,6 +1762,24 @@ function createSunriseSunsetCard(obj){
     SunriseSunset.appendChild(SUNSET)
 }
 
+function createWindCard(obj){
+    const directionLabel = document.createElement(`p`);
+    const WIND_DIRECTION = document.createElement(`h3`);
+    const speedLabel = document.createElement(`p`);
+    const WIND_SPEED = document.createElement(`h3`);
+
+    directionLabel.textContent = `Direction`
+    WIND_DIRECTION.textContent = `${obj.current.wind_deg}°`
+    speedLabel.textContent = `Speed`
+    WIND_SPEED.textContent = `${obj.current.wind_speed} MPH`
+
+    wind.appendChild(directionLabel)
+    wind.appendChild(WIND_DIRECTION)
+    wind.appendChild(speedLabel)
+    wind.appendChild(WIND_SPEED)
+}
+
+// le clocke
 var myVar = setInterval(myTimer, 1000);
 function myTimer() {
     var d = new Date();
