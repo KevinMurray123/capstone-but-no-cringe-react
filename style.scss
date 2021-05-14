@@ -28,9 +28,18 @@ nav {
         justify-content: center;
         margin: 0 auto;
         text-align: center;
+        font-family: 'Reggae One', cursive;
+    }
+    h1 {
+        font-family: 'Baloo 2', cursive;
+        margin-bottom: 15px;
+        margin-top: 50px;
+        font-size: 1.5rem;
+        text-align: center;
     }
     .nav-content {
         width: 100%;
+        height: 50%;
         display: flex;
         justify-content: center;
         margin: 0 auto; 
@@ -152,8 +161,8 @@ nav {
 
 .sunrise-text-con {
     .sunrise-text {
-        
-        width: 100%;
+        width: 110%;
+        padding-right: 5px;
     }
 }
 
@@ -426,4 +435,41 @@ p {
     font-size: 1.2rem;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
+}
+
+// NAVBAR CSS
+
+.link-con {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    .links {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        flex-flow: wrap;
+        flex-direction: row;
+        background-color: rgba(92, 217, 255, 0.479);
+        a {
+            margin: -5px 10px;
+            padding: 5px;
+            color: black;
+            transition: all .3s ease-in-out;
+            font-size: 1.3rem;
+        } 
+        a:hover {
+            color: grey;
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+hr {
+    margin-left: 15px;
+    width: 400px;
 }

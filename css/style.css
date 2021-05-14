@@ -37,10 +37,20 @@ nav h2 {
           justify-content: center;
   margin: 0 auto;
   text-align: center;
+  font-family: 'Reggae One', cursive;
+}
+
+nav h1 {
+  font-family: 'Baloo 2', cursive;
+  margin-bottom: 15px;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 nav .nav-content {
   width: 100%;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -178,7 +188,8 @@ nav .nav-content a span {
 }
 
 .sunrise-text-con .sunrise-text {
-  width: 100%;
+  width: 110%;
+  padding-right: 5px;
 }
 
 /*CARDS 10 DAY*/
@@ -457,5 +468,57 @@ p {
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+
+.link-con {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.link-con .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: rgba(92, 217, 255, 0.479);
+}
+
+.link-con .links a {
+  margin: -5px 10px;
+  padding: 5px;
+  color: black;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  font-size: 1.3rem;
+}
+
+.link-con .links a:hover {
+  color: grey;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+hr {
+  margin-left: 15px;
+  width: 400px;
 }
 /*# sourceMappingURL=style.css.map */
