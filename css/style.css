@@ -4,6 +4,11 @@ html {
   font-family: 'Courier New', Courier, monospace;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   background-image: url("../content/background.png");
   background-attachment: fixed;
@@ -317,8 +322,10 @@ body {
 }
 
 .card-weather .card-body:first-child {
-  background: url("https://images.pexels.com/photos/2259232/pexels-photo-2259232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background: url("https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   position: relative;
+  color: white;
+  opacity: .9;
 }
 
 .layer {
@@ -422,10 +429,6 @@ p {
   font-size: 1.2rem;
 }
 
-.ten #page-content {
-  width: 100%;
-}
-
 .card-body a {
   -webkit-transition: all  ease-in-out .5s;
   transition: all  ease-in-out .5s;
@@ -436,5 +439,23 @@ p {
 .card-body a:hover {
   text-decoration: none;
   background-color: rgba(102, 208, 243, 0.637);
+}
+
+.ten {
+  width: auto;
+  height: auto;
+}
+
+.ten .card:hover {
+  -webkit-transition: all  ease-in-out 1s;
+  transition: all  ease-in-out 1s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.subtext {
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }
 /*# sourceMappingURL=style.css.map */

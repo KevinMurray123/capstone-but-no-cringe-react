@@ -1,0 +1,1 @@
+IF theres time make an array with image urls and based of the current weather of that day then set the background image to the url that matches.
