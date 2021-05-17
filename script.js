@@ -1707,6 +1707,7 @@ function init(string){
     createSunriseSunsetCard(weatherObj);
     createHighLowCard(weatherObj);
     createWindCard(weatherObj);
+    setInitial7DayValues(weatherObj);
 }
 
 function createTempCard(obj){
@@ -1786,6 +1787,36 @@ function myTimer() {
     document.getElementById("demo").innerHTML = d.toLocaleTimeString();
 }
 
+function setInitial7DayValues(obj){
+    let SUNRISE = msToTime(obj.daily[0].sunrise / 60)
+    let SUNSET = msToTime(obj.daily[0].sunset / 60)
+
+
+
+    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°`
+    document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[0].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
+    document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
+    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM` 
+    document.getElementById(`weather-7day`).textContent = obj.daily[0].weather[0].main
+    
+    for(let i = 0; i < 7; i++){
+        document.getElementById(`temp${i}-7day`).textContent = `${Math.floor(obj.daily[i].temp.day)}°`
+    }
+}
+
+function editinfo(boxClicked){
+    let obj = JSON.parse(data)
+
+    let SUNRISE = msToTime(obj.daily[boxClicked].sunrise / 60)
+    let SUNSET = msToTime(obj.daily[boxClicked].sunset / 60)
+
+    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°`
+    document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
+    document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
+    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM` 
+    document.getElementById(`weather-7day`).textContent = obj.daily[boxClicked].weather[0].main
+}
+
 // yoinked this from stack overflow
 function msToTime(s) {
     var ms = s % 1000;
@@ -1796,3 +1827,5 @@ function msToTime(s) {
     var hrs = (s - mins) / 60;
     return hrs + ':' + mins 
 }
+
+
