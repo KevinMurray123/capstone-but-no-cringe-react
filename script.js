@@ -1701,7 +1701,7 @@ let wind = document.getElementById(`wind`)
 
 init(data)
 
-function init(string){
+function init(string) {
     let weatherObj = JSON.parse(string);
     createTempCard(weatherObj);
     createSunriseSunsetCard(weatherObj);
@@ -1710,7 +1710,7 @@ function init(string){
     setInitial7DayValues(weatherObj);
 }
 
-function createTempCard(obj){
+function createTempCard(obj) {
     const tempLabel = document.createElement(`p`);
     const CURRENT_TEMP = document.createElement(`h2`);
     const feelsLabel = document.createElement(`p`)
@@ -1718,13 +1718,13 @@ function createTempCard(obj){
     const locLabel = document.createElement(`p`);
     const LOCATION = document.createElement(`h4`);
 
-    tempLabel.textContent = `Current`; 
+    tempLabel.textContent = `Current`;
     CURRENT_TEMP.textContent = `${obj.current.temp} °F`
     feelsLabel.textContent = `Feels Like`
     FEELS_LIKE.textContent = `${obj.current.feels_like} °F`
     locLabel.textContent = `Location`
     LOCATION.textContent = obj.timezone;
-    
+
     temperatureContainer.appendChild(tempLabel)
     temperatureContainer.appendChild(CURRENT_TEMP)
     temperatureContainer.appendChild(feelsLabel)
@@ -1750,10 +1750,10 @@ function createHighLowCard(obj) {
     highLow.appendChild(HIGHLOW)
 }
 
-function createSunriseSunsetCard(obj){
+function createSunriseSunsetCard(obj) {
     const SUNRISE = document.createElement(`h4`)
     const SUNSET = document.createElement(`h4`)
-    
+
     let riseTime = msToTime(obj.current.sunrise / 60)
     let setTime = msToTime(obj.current.sunset / 60)
     SUNRISE.textContent = `Sunrise: ${riseTime} AM`;
@@ -1763,7 +1763,7 @@ function createSunriseSunsetCard(obj){
     SunriseSunset.appendChild(SUNSET)
 }
 
-function createWindCard(obj){
+function createWindCard(obj) {
     const directionLabel = document.createElement(`p`);
     const WIND_DIRECTION = document.createElement(`h3`);
     const speedLabel = document.createElement(`p`);
@@ -1787,33 +1787,46 @@ function myTimer() {
     document.getElementById("demo").innerHTML = d.toLocaleTimeString();
 }
 
-function setInitial7DayValues(obj){
+function setInitial7DayValues(obj) {
     let SUNRISE = msToTime(obj.daily[0].sunrise / 60)
     let SUNSET = msToTime(obj.daily[0].sunset / 60)
 
 
 
-    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°`
+    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[0].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
     document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
-    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM` 
+    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM`
     document.getElementById(`weather-7day`).textContent = obj.daily[0].weather[0].main
-    
-    for(let i = 0; i < 7; i++){
+
+    for (let i = 0; i < 7; i++) {
         document.getElementById(`temp${i}-7day`).textContent = `${Math.floor(obj.daily[i].temp.day)}°`
     }
 }
 
-function editinfo(boxClicked){
+
+let toggle = true;
+let tabs = document.getElementsByClassName("weakly-weather-item");
+console.log(tabs)
+function setActiveDay(id) {
+    for(tab of tabs){
+        tab.classList.remove('active')
+    }
+    tabs[id].classList.add('active');
+}
+
+
+function editinfo(boxClicked) {
+    setActiveDay(boxClicked);
     let obj = JSON.parse(data)
 
     let SUNRISE = msToTime(obj.daily[boxClicked].sunrise / 60)
     let SUNSET = msToTime(obj.daily[boxClicked].sunset / 60)
 
-    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°`
+    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
     document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
-    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM` 
+    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM`
     document.getElementById(`weather-7day`).textContent = obj.daily[boxClicked].weather[0].main
 }
 
@@ -1825,7 +1838,43 @@ function msToTime(s) {
     s = (s - secs) / 60;
     var mins = s % 60;
     var hrs = (s - mins) / 60;
-    return hrs + ':' + mins 
+    return hrs + ':' + mins
 }
 
 
+//CHART JS
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});

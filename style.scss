@@ -379,6 +379,7 @@ p {
         &:hover {
             text-decoration: none;
             background-color: rgba(102, 208, 243, 0.637);
+            cursor: pointer;
         }
     }
 }
@@ -395,6 +396,16 @@ p {
 }
 
 // NAVBAR CSS
+
+.active {
+    opacity: 1;
+    transition: opacity 1s;
+    background-color: rgba(92, 217, 255, 0.8);
+}
+
+.active.fade{
+    opacity: 0;
+}
 
 .link-con {
     display: flex;
