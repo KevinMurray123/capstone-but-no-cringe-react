@@ -404,6 +404,7 @@ p {
 .card-body a:hover {
   text-decoration: none;
   background-color: rgba(102, 208, 243, 0.637);
+  cursor: pointer;
 }
 
 .ten {
@@ -415,6 +416,17 @@ p {
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+
+.active {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  background-color: rgba(92, 217, 255, 0.8);
+}
+
+.active.fade {
+  opacity: 0;
 }
 
 .link-con {
@@ -446,7 +458,7 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: rgba(92, 217, 255, 0.8);
+  background-color: #A3F4FF;
 }
 
 .link-con .links a {
