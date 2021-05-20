@@ -1788,15 +1788,14 @@ function myTimer() {
 }
 
 function setInitial7DayValues(obj) {
-    let SUNRISE = msToTime(obj.daily[0].sunrise / 60)
-    let SUNSET = msToTime(obj.daily[0].sunset / 60)
+    
 
 
 
     document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[0].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
-    document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
-    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM`
+    document.getElementById(`wind-dir-7day`).textContent = `Wind Direction: ${obj.daily[0].wind_deg}°`
+    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: `
     document.getElementById(`weather-7day`).textContent = obj.daily[0].weather[0].main
 
     for (let i = 0; i < 7; i++) {
@@ -1820,13 +1819,11 @@ function editinfo(boxClicked) {
     setActiveDay(boxClicked);
     let obj = JSON.parse(data)
 
-    let SUNRISE = msToTime(obj.daily[boxClicked].sunrise / 60)
-    let SUNSET = msToTime(obj.daily[boxClicked].sunset / 60)
-
     document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°F`
-    document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
-    document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
-    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM`
+    document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[boxClicked].temp.min)}°`
+
+
+
     document.getElementById(`weather-7day`).textContent = obj.daily[boxClicked].weather[0].main
 }
 
