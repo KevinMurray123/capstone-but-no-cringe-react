@@ -459,7 +459,7 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: rgba(92, 217, 255, 0.8);
+  background-color: #A3F4FF;
 }
 
 .link-con .links a {
