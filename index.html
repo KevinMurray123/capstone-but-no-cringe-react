@@ -15,6 +15,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <title>Capstone</title>
   </head>
@@ -23,41 +29,23 @@
     <nav class="navbar navbar-light">
       <div class="nav-content">
         <a class="navbar-brand" href="#">
-          <img
-            src="content/weatherweasle_logo.png"
-            width="192"
-            height="108"
-            class="d-inline-block align-top"
-            alt=""
-          />
           <!-- <span>Weather Weasel</span> -->
-          <h2>Weather Weasel</h2>
+          <h2>Weather Weasel</h2><br><br>
+          <hr>
+          <h1>Current Weather</h1>
         </a>
       </div>
     </nav>
+    <div class="link-con">
+      <div class="links">
+        <a href="#cards_landscape_wrap-2">Current Weather</a>
+        <a href="#ten">7 Day Forcast</a>
+        <a href="#">Graphs</a>
+      </div>
+    </div>
     <div id="cards_landscape_wrap-2">
       <div class="container">
-        <h2 id="demo"></h2>
-=======
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/src/css/style.css"></script>
-    <title>Ca.</title>
-</head>
-<!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="content/weatherweasle_logo.png" width="192" height="108" class="d-inline-block align-top"
-            alt="">
-        Bootstrap
-    </a>
-</nav>
-<div id="cards_landscape_wrap-2">
-    <div class="container">
->>>>>>> Stashed changes
+        <h2 style="margin-top: 15px;" id="demo"></h2>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             
@@ -136,13 +124,110 @@
 
                     </p>
                   </div>
+                  
                 </div>
               </div>
-            
           </div>
+          
+          
         </div>
+        
       </div>
+      
     </div>
-  </body>
+    
+    
+    <!-- 7 day -->
+    <div class="week-weth">
+    <div id="ten" class="ten">
+      <div class="page-content page-container" id="page-content">
+          <div class="padding">
+              <div class="row container d-flex justify-content-center">
+                  <div class="col-lg-8 grid-margin stretch-card">
+                      <!--weather card-->
+                      <div class="card card-weather">
+                          <div class="layer">
+                          <div class="card-body">
+                              <div class="weather-date-location">
+                              </div>
+                              <div class="weather-data d-flex">
+                                  <div class="mr-auto">
+                                      <!-- HEY YOU, EDIT THE DATA HERE!! -->
+                                      <h4 id="currentTemp-7day" class="display-3">32 <span class="symbol">°</span>C</h4>
+                                      <p id="highlow-7day" class="subtext"> 90°/102° </p>
+                                  </div>
+                                  <div class="mr-auto">
+                                      <h4 id="sunrise-7day" class="display-3">Sunrise:</h4>
+                                      <h4 id="sunset-7day" class="display-3">Sunset:</h4>
+                                      <p id="weather-7day" class="subtext"> Cloudy </p>
+                                  </div>
+                                  <!-- HEY YOU, EDIT THE DATA HERE!! -->
+                              </div>
+                          </div>
+                          <div class="card-body p-0">
+                              <div class="d-flex weakly-weather">
+                                  <!-- MAKE ONCLICK FUNCTON THAT WILL GET THE TEXTCONTENT OF THE DIV THERE CLICKING ON AND CHANGE THE DATA ACCORDINGLY -->
+                                  <a id='active-js0'>
+                                  <div class="weakly-weather-item" onclick="editinfo(0)">
+                                      <p class="mb-0"> Sun </p> <i class="mdi mdi-weather-cloudy"></i>
+                                      <p id="temp0-7day" class="mb-0"> 30° </p>
+                                  </div>
+                                  </a>
+                                  <a id='active-js1'>
+                                  <div class="weakly-weather-item" onclick="editinfo(1)">
+                                      <p class="mb-1"> Mon </p> <i class="mdi mdi-weather-hail"></i>
+                                      <p id="temp1-7day" class="mb-0"> 31° </p>
+                                  </div>
+                              </a>
+                                  <a id='active-js2'>
+                                  <div class="weakly-weather-item" onclick="editinfo(2)">
+                                      <p class="mb-1"> Tue </p> <i class="mdi mdi-weather-partlycloudy"></i>
+                                      <p id="temp2-7day" class="mb-0"> 28° </p>
+                                  </div>
+                                  </a>
+                                  <a id='active-js3'>
+                                  <div class="weakly-weather-item" onclick="editinfo(3)">
+                                      <p class="mb-1"> Wed </p> <i class="mdi mdi-weather-pouring"></i>
+                                      <p id="temp3-7day" class="mb-0"> 30° </p>
+                                  </div>
+                                  </a>
+                                  <a id='active-js4'>
+                                  <div class="weakly-weather-item" onclick="editinfo(4)">
+                                      <p class="mb-1"> Thu </p> <i class="mdi mdi-weather-pouring"></i>
+                                      <p id="temp4-7day" class="mb-0"> 29° </p>
+                                  </div>
+                                  </a>
+                                  <a id='active-js5'>
+                                  <div class="weakly-weather-item" onclick="editinfo(5)">
+                                      <p class="mb-1"> Fri </p> <i class="mdi mdi-weather-snowy-rainy"></i>
+                                      <p id="temp5-7day" class="mb-0"> 31° </p>
+                                  </div>
+                                  </a>
+                                  <a id='active-js6'>
+                                  <div class="weakly-weather-item" onclick="editinfo(6)">
+                                      <p class="mb-1"> Sat </p> <i class="mdi mdi-weather-snowy"></i>
+                                      <p id="temp6-7day" class="mb-0"> 32° </p>
+                                  </div>
+                              </a>
+                              </div>
+                          
+                      <!--weather card ends-->
+                  </div>
+              </div>
+              </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+    </body>
+    
+    <footer class="footer">
+      <h2>Weather Weasel</h2>
+      <p>Copyright Weather Weasel 2020 <sup>©</sup></p>
+      <p>Welcome to weather weasel the winning weather watcher on the world wide web and the whole western world, whether week or weekend, whoever wants the weather can watch weather weasel whilst they work, walk, wander, or write.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </html>

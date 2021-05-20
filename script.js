@@ -1697,51 +1697,63 @@ const data = `{
 let temperatureContainer = document.getElementById(`temperature-container`)
 let SunriseSunset = document.getElementById(`sunrise-sunset`)
 let highLow = document.getElementById(`high-low`)
+let wind = document.getElementById(`wind`)
 
 init(data)
 
-function init(string){
+function init(string) {
     let weatherObj = JSON.parse(string);
     createTempCard(weatherObj);
     createSunriseSunsetCard(weatherObj);
     createHighLowCard(weatherObj);
-    // createWindCard(weatherObj);
+    createWindCard(weatherObj);
+    setInitial7DayValues(weatherObj);
 }
 
-function createTempCard(obj){
+function createTempCard(obj) {
     const tempLabel = document.createElement(`p`);
     const CURRENT_TEMP = document.createElement(`h2`);
+    const feelsLabel = document.createElement(`p`)
     const FEELS_LIKE = document.createElement(`h4`);
+    const locLabel = document.createElement(`p`);
     const LOCATION = document.createElement(`h4`);
 
-    tempLabel.textContent = `Current`; 
+    tempLabel.textContent = `Current`;
     CURRENT_TEMP.textContent = `${obj.current.temp} °F`
+    feelsLabel.textContent = `Feels Like`
     FEELS_LIKE.textContent = `${obj.current.feels_like} °F`
+    locLabel.textContent = `Location`
     LOCATION.textContent = obj.timezone;
-    
+
     temperatureContainer.appendChild(tempLabel)
     temperatureContainer.appendChild(CURRENT_TEMP)
+    temperatureContainer.appendChild(feelsLabel)
     temperatureContainer.appendChild(FEELS_LIKE)
+    temperatureContainer.appendChild(locLabel)
     temperatureContainer.appendChild(LOCATION)
 }
 
 function createHighLowCard(obj) {
-    
+    const weatherLabel = document.createElement(`p`);
     const WEATHER = document.createElement(`h1`);
-    const HIGHLOW = document.createElement(`h3`)
+    const highLowLabel = document.createElement(`p`);
+    const HIGHLOW = document.createElement(`h3`);
 
-
+    weatherLabel.textContent = `Weather`
     WEATHER.textContent = obj.current.weather[0].main
+    highLowLabel.textContent = `High / Low`
     HIGHLOW.textContent = `${Math.floor(obj.current.temp + 6)}° / ${Math.floor(obj.current.temp) - 11}°`
 
+    highLow.appendChild(weatherLabel)
     highLow.appendChild(WEATHER)
+    highLow.appendChild(highLowLabel)
     highLow.appendChild(HIGHLOW)
 }
 
-function createSunriseSunsetCard(obj){
+function createSunriseSunsetCard(obj) {
     const SUNRISE = document.createElement(`h4`)
     const SUNSET = document.createElement(`h4`)
-    
+
     let riseTime = msToTime(obj.current.sunrise / 60)
     let setTime = msToTime(obj.current.sunset / 60)
     SUNRISE.textContent = `Sunrise: ${riseTime} AM`;
@@ -1751,10 +1763,71 @@ function createSunriseSunsetCard(obj){
     SunriseSunset.appendChild(SUNSET)
 }
 
+function createWindCard(obj) {
+    const directionLabel = document.createElement(`p`);
+    const WIND_DIRECTION = document.createElement(`h3`);
+    const speedLabel = document.createElement(`p`);
+    const WIND_SPEED = document.createElement(`h3`);
+
+    directionLabel.textContent = `Direction`
+    WIND_DIRECTION.textContent = `${obj.current.wind_deg}°`
+    speedLabel.textContent = `Speed`
+    WIND_SPEED.textContent = `${obj.current.wind_speed} MPH`
+
+    wind.appendChild(directionLabel)
+    wind.appendChild(WIND_DIRECTION)
+    wind.appendChild(speedLabel)
+    wind.appendChild(WIND_SPEED)
+}
+
+// le clocke
 var myVar = setInterval(myTimer, 1000);
 function myTimer() {
     var d = new Date();
     document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+
+function setInitial7DayValues(obj) {
+    let SUNRISE = msToTime(obj.daily[0].sunrise / 60)
+    let SUNSET = msToTime(obj.daily[0].sunset / 60)
+
+
+
+    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°F`
+    document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[0].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
+    document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
+    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM`
+    document.getElementById(`weather-7day`).textContent = obj.daily[0].weather[0].main
+
+    for (let i = 0; i < 7; i++) {
+        document.getElementById(`temp${i}-7day`).textContent = `${Math.floor(obj.daily[i].temp.day)}°`
+    }
+}
+
+
+let toggle = true;
+let tabs = document.getElementsByClassName("weakly-weather-item");
+console.log(tabs)
+function setActiveDay(id) {
+    for(tab of tabs){
+        tab.classList.remove('active')
+    }
+    tabs[id].classList.add('active');
+}
+
+
+function editinfo(boxClicked) {
+    setActiveDay(boxClicked);
+    let obj = JSON.parse(data)
+
+    let SUNRISE = msToTime(obj.daily[boxClicked].sunrise / 60)
+    let SUNSET = msToTime(obj.daily[boxClicked].sunset / 60)
+
+    document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°F`
+    document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
+    document.getElementById(`sunrise-7day`).textContent = `Sunrise: ${SUNRISE}AM`
+    document.getElementById(`sunset-7day`).textContent = `Sunset: ${SUNSET}PM`
+    document.getElementById(`weather-7day`).textContent = obj.daily[boxClicked].weather[0].main
 }
 
 // yoinked this from stack overflow
@@ -1765,5 +1838,43 @@ function msToTime(s) {
     s = (s - secs) / 60;
     var mins = s % 60;
     var hrs = (s - mins) / 60;
-    return hrs + ':' + mins 
+    return hrs + ':' + mins
 }
+
+
+//CHART JS
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
