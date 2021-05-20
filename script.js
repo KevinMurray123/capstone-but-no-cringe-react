@@ -1795,7 +1795,8 @@ function setInitial7DayValues(obj) {
     document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[0].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
     document.getElementById(`wind-dir-7day`).textContent = `Wind Direction: ${obj.daily[0].wind_deg}°`
-    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: `
+    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: ${obj.daily[0].wind_speed} MPH `
+    document.getElementById(`humidity`).textContent = `Humidity: ${obj.daily[0].humidity}%`
     document.getElementById(`weather-7day`).textContent = obj.daily[0].weather[0].main
 
     for (let i = 0; i < 7; i++) {
