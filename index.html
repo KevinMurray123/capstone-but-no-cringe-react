@@ -25,7 +25,7 @@
   </head>
   <!-- Image and text -->
   <body id="body">
-    <nav class="navbar navbar-light">
+    <nav id="nav" class="navbar navbar-light">
       <div class="nav-content">
         <a class="navbar-brand" href="#">
           <!-- <span>Weather Weasel</span> -->
@@ -37,7 +37,7 @@
     </nav>
     <div class="link-con">
       <div class="links">
-        <a href="#cards_landscape_wrap-2">Current Weather</a>
+        <a href="#nav">Current Weather</a>
         <a href="#ten">7 Day Forcast</a>
         <a href="#">Graphs</a>
       </div>
@@ -45,6 +45,7 @@
     <div id="cards_landscape_wrap-2">
       <div class="container">
         <h2 style="margin-top: 15px;" id="demo"></h2>
+        <h2 style="margin-top: 15px;" id="date"></h2>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             
@@ -137,12 +138,13 @@
     
     
     <!-- 7 day -->
-    <div class="week-weth">
+    <div style="margin-top: 150px;" class="week-weth">
     <div id="ten" class="ten">
       <div class="page-content page-container" id="page-content">
           <div class="padding">
               <div class="row container d-flex justify-content-center">
                   <div class="col-lg-8 grid-margin stretch-card">
+                    <h1 style="font-family: 'Baloo 2', cursive; text-align: center; font-size: 1.9rem;" id="7-day-id">7 Day Forcast</h1>
                       <!--weather card-->
                       <div class="card card-weather">
                           <div class="layer">
@@ -156,8 +158,9 @@
                                       <p id="highlow-7day" class="subtext"> 90°/102° </p>
                                   </div>
                                   <div class="mr-auto">
-                                      <h3 id="wind-dir-7day" class="display-3">Wind Direction:</h3>
-                                      <h3 id="wind-speed-7day" class="display-3">Wind Speed:</h3>
+                                      <h2 id="wind-dir-7day">Wind Direction:</h3>
+                                      <h2 id="wind-speed-7day">Wind Speed:</h3>
+                                      <h3 id="humidity">Humidity:</h4>
                                       <p id="weather-7day" class="subtext"> Cloudy </p>
                                   </div>
                                   <!-- HEY YOU, EDIT THE DATA HERE!! -->

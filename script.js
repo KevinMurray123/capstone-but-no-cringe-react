@@ -1795,7 +1795,8 @@ function setInitial7DayValues(obj) {
     document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[0].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[0].temp.max)}°/${Math.floor(obj.daily[0].temp.min)}°`
     document.getElementById(`wind-dir-7day`).textContent = `Wind Direction: ${obj.daily[0].wind_deg}°`
-    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: `
+    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: ${obj.daily[0].wind_speed} MPH `
+    document.getElementById(`humidity`).textContent = `Humidity: ${obj.daily[0].humidity}%`
     document.getElementById(`weather-7day`).textContent = obj.daily[0].weather[0].main
 
     for (let i = 0; i < 7; i++) {
@@ -1821,9 +1822,9 @@ function editinfo(boxClicked) {
 
     document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[boxClicked].temp.min)}°`
-
-
-
+    document.getElementById(`wind-dir-7day`).textContent = `Wind Direction: ${obj.daily[boxClicked].wind_deg}°`
+    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: ${obj.daily[boxClicked].wind_speed} MPH `
+    document.getElementById(`humidity`).textContent = `Humidity: ${obj.daily[boxClicked].humidity}%`
     document.getElementById(`weather-7day`).textContent = obj.daily[boxClicked].weather[0].main
 }
 
@@ -1839,39 +1840,11 @@ function msToTime(s) {
 }
 
 
-//CHART JS
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+
+function getDate(){
+    let today = new Date().toLocaleDateString();
+    let date = document.getElementById('date');
+    date.textContent = today;
+}
+
+getDate();

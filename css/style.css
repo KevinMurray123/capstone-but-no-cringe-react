@@ -13,6 +13,19 @@ html {
 body {
   background-image: url("../content/background.png");
   background-attachment: fixed;
+  overflow: hidden;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+#7-day-id {
+  font-family: 'Baloo 2', cursive;
+  text-align: center;
 }
 
 nav {
@@ -175,11 +188,11 @@ nav .nav-content a span {
 .icons {
   float: left;
   margin-top: -4px;
-  margin-right: 5px;
 }
 
 .icons h2 {
-  margin-bottom: 0px;
+  margin-top: -4px;
+  margin-left: -20px;
 }
 
 .text-container .wide {
@@ -307,7 +320,7 @@ body {
 }
 
 .card-weather .card-body:first-child {
-  background: rgba(164, 219, 255, 0.493);
+  background-image: url("https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   position: relative;
   opacity: .9;
 }
@@ -346,6 +359,14 @@ h5,
 h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+}
+
+.card-body {
+  color: #fff;
+}
+
+.weakly-weather-item {
+  color: black;
 }
 
 .text-gray,
@@ -429,6 +450,23 @@ p {
   opacity: 0;
 }
 
+.row {
+  height: 500px;
+}
+
+.card-flyer {
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .link-con {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -458,7 +496,6 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: #A3F4FF;
 }
 
 .link-con .links a {
@@ -499,5 +536,10 @@ footer h2 {
   font-size: 1.3rem;
   padding-left: 15px;
   padding-top: 5px;
+}
+
+canvas #line-chart {
+  max-width: 40%;
+  max-height: 40%;
 }
 /*# sourceMappingURL=style.css.map */
