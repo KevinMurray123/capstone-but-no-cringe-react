@@ -545,4 +545,24 @@ canvas #line-chart {
 #date {
   font-size: 1.5rem;
 }
+
+.white-space {
+  height: 250px;
+  width: auto;
+}
+
+.windmap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+#week-weth {
+  margin-top: 150px;
+}
 /*# sourceMappingURL=style.css.map */
