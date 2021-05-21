@@ -542,4 +542,8 @@ canvas #line-chart {
   max-width: 40%;
   max-height: 40%;
 }
+
+#date {
+  font-size: 1.5rem;
+}
 /*# sourceMappingURL=style.css.map */
