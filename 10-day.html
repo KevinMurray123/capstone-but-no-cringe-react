@@ -16,14 +16,14 @@
 
 <body>
     <script src="./node_modules/chart.js/dist/chart.min.js"></script>
-    <canvas id="line-chart" responsive=></canvas>
+    <canvas id="line-chart" responsive></canvas>
     <script>
         new Chart(document.getElementById("line-chart"), {
             type: 'line',
             data: {
-                labels: [86,77,84,86,86,85,84],
+                labels: ['Sunday','Monday','Tuesday','Wensday','Thursday','Friday','Saturday'],
                 datasets: [{
-                    data: [],
+                    data: [86,77,84,86,86,85,84],
                     label: "Tempeture",
                     borderColor: "#3e95cd",
                     fill: false
@@ -33,7 +33,7 @@
                     borderColor: "#8e5ea2",
                     fill: false
                 }, {
-                    data: [],
+                    data: [72,67,71,75,75,75,75],
                     label: "Temp Low",
                     borderColor: "#3cba9f",
                     fill: false
