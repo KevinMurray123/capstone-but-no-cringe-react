@@ -26,7 +26,7 @@
   </head>
   <!-- Image and text -->
   <body id="body">
-    <nav class="navbar navbar-light">
+    <nav id="nav" class="navbar navbar-light">
       <div class="nav-content">
         <a class="navbar-brand" href="#">
           <!-- <span>Weather Weasel</span> -->
@@ -38,7 +38,7 @@
     </nav>
     <div class="link-con">
       <div class="links">
-        <a href="#cards_landscape_wrap-2">Current Weather</a>
+        <a href="#nav">Current Weather</a>
         <a href="#ten">7 Day Forcast</a>
         <a href="#">Graphs</a>
       </div>
@@ -138,12 +138,13 @@
     
     
     <!-- 7 day -->
-    <div class="week-weth">
+    <div style="margin-top: 150px;" class="week-weth">
     <div id="ten" class="ten">
       <div class="page-content page-container" id="page-content">
           <div class="padding">
               <div class="row container d-flex justify-content-center">
                   <div class="col-lg-8 grid-margin stretch-card">
+                    <h1 style="font-family: 'Baloo 2', cursive; text-align: center; font-size: 1.9rem;" id="7-day-id">7 Day Forcast</h1>
                       <!--weather card-->
                       <div class="card card-weather">
                           <div class="layer">
