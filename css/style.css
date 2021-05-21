@@ -406,7 +406,6 @@ p {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 14.28%;
           flex: 0 0 14.28%;
-  border-right: 1px solid #f2f2f2;
   padding: 1rem;
   text-align: center;
 }
@@ -536,5 +535,34 @@ footer h2 {
   font-size: 1.3rem;
   padding-left: 15px;
   padding-top: 5px;
+}
+
+canvas #line-chart {
+  max-width: 40%;
+  max-height: 40%;
+}
+
+#date {
+  font-size: 1.5rem;
+}
+
+.white-space {
+  height: 250px;
+  width: auto;
+}
+
+.windmap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+#week-weth {
+  margin-top: 150px;
 }
 /*# sourceMappingURL=style.css.map */

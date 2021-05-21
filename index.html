@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< Updated upstream
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -39,13 +38,14 @@
     <div class="link-con">
       <div class="links">
         <a href="#nav">Current Weather</a>
-        <a href="#ten">7 Day Forcast</a>
-        <a href="#">Graphs</a>
+        <a href="#week-weth">7 Day Forcast</a>
+        <a href="#graph">Graphs</a>
       </div>
     </div>
     <div id="cards_landscape_wrap-2">
       <div class="container">
         <h2 style="margin-top: 15px;" id="demo"></h2>
+        <h2 style="margin-top: 15px;" id="date"></h2>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             
@@ -136,15 +136,14 @@
       
     </div>
     
-    
     <!-- 7 day -->
-    <div style="margin-top: 150px;" class="week-weth">
+    <div style="margin-top: 150px;" id="week-weth" class="week-weth">
     <div id="ten" class="ten">
       <div class="page-content page-container" id="page-content">
           <div class="padding">
               <div class="row container d-flex justify-content-center">
                   <div class="col-lg-8 grid-margin stretch-card">
-                    <h1 style="font-family: 'Baloo 2', cursive; text-align: center; font-size: 1.9rem;" id="7-day-id">7 Day Forcast</h1>
+                    <h1 style="font-family: 'Baloo 2', cursive; text-align: center; font-size: 1.9rem; padding-top: 35px" id="7-day-id">7 Day Forcast</h1>
                       <!--weather card-->
                       <div class="card card-weather">
                           <div class="layer">
@@ -222,6 +221,10 @@
           </div>
       </div>
   </div>
+</div>
+<div class="white-space"></div>
+<div id="graph" class="windmap">
+  <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=33.634&lon=-112.207&detailLat=33.634&detailLon=-112.207&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1" frameborder="0"></iframe>
 </div>
     </body>
     
