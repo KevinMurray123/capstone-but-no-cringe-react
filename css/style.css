@@ -537,4 +537,9 @@ footer h2 {
   padding-left: 15px;
   padding-top: 5px;
 }
+
+canvas #line-chart {
+  max-width: 40%;
+  max-height: 40%;
+}
 /*# sourceMappingURL=style.css.map */
