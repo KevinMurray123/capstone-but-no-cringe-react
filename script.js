@@ -1822,9 +1822,9 @@ function editinfo(boxClicked) {
 
     document.getElementById(`currentTemp-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.day)}°F`
     document.getElementById(`highlow-7day`).textContent = `${Math.floor(obj.daily[boxClicked].temp.max)}°/${Math.floor(obj.daily[boxClicked].temp.min)}°`
-
-
-
+    document.getElementById(`wind-dir-7day`).textContent = `Wind Direction: ${obj.daily[boxClicked].wind_deg}°`
+    document.getElementById(`wind-speed-7day`).textContent = `Wind Speed: ${obj.daily[boxClicked].wind_speed} MPH `
+    document.getElementById(`humidity`).textContent = `Humidity: ${obj.daily[boxClicked].humidity}%`
     document.getElementById(`weather-7day`).textContent = obj.daily[boxClicked].weather[0].main
 }
 
